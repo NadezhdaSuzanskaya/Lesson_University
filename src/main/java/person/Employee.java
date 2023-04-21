@@ -8,6 +8,8 @@ public abstract class Employee extends Person {
     protected String startDate;
     protected int numberOfWorkHours;
 
+    public Employee(){}
+
     public Employee( String name, String individualNumber, String startDate, int numberOfWorkHours) {
         super(name);
         this.individualNumber = individualNumber;

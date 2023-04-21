@@ -6,6 +6,8 @@ public abstract class Person {
     protected String address;
     protected String phone;
 
+    public Person (){};
+
     public Person(String name, byte age, String address, String phone) {
         this.name = name;
         this.age = age;

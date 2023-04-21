@@ -6,6 +6,7 @@ public class Professor extends Employee{
     private double overTimeHours;
     private byte countOfExam;
 
+    public Professor(){}
 
     public Professor(String name,  String individualNumber, String startDate, int numberOfWorkHours, int professorDegree, double overTimeHours, byte countOfExam) {
         super(name,  individualNumber, startDate,numberOfWorkHours);

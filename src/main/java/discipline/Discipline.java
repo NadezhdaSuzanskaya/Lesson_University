@@ -8,6 +8,8 @@ public abstract class Discipline {
     protected LectureLesson lectureLesson;
     protected PracticeLesson practiceLesson;
 
+    public Discipline(){}
+
     public Discipline(String disciplineName, LectureLesson lectureLesson, PracticeLesson practiceLesson) {
         this.disciplineName = disciplineName;
         this.lectureLesson = lectureLesson;

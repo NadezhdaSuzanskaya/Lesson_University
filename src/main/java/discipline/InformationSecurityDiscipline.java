@@ -9,6 +9,8 @@ public class InformationSecurityDiscipline extends Discipline{
     private String teachingCourse ;
     private String teachingFaculty ;
 
+    public InformationSecurityDiscipline(){}
+
     public InformationSecurityDiscipline(String disciplineName, LectureLesson lectureLesson, PracticeLesson practiceLesson, int group, String teachingCourse, String teachingFaculty) {
         super(disciplineName, lectureLesson, practiceLesson);
         this.group = group;

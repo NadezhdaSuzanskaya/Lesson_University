@@ -3,8 +3,11 @@ package person;
 public abstract class Student extends Person {
     protected String numberOfRecordBook;
 
+    public Student() {
+    }
+
     //creating a parameterized constructor
-    Student(String name, byte age, String address,String phone, String numberOfRecordBook){
+    public  Student(String name, byte age, String address,String phone, String numberOfRecordBook){
         super(name, age, address, phone);
         this.numberOfRecordBook=numberOfRecordBook;
     }

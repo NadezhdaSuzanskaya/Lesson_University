@@ -4,6 +4,9 @@ public abstract class Lesson {
     protected int duration;
     protected String classRoom;
 
+    public Lesson() {
+    }
+
     public Lesson(int duration, String classRoom) {
         this.duration = duration;
         this.classRoom = classRoom;

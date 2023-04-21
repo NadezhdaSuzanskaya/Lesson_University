@@ -8,6 +8,8 @@ public class EcomonicDiscipline extends Discipline{
     private String teachingCourse ;
     private String teachingFaculty ;
 
+    public EcomonicDiscipline(){}
+
     public EcomonicDiscipline(String disciplineName, LectureLesson lectureLesson, PracticeLesson practiceLesson, int group, String teachingCourse, String teachingFaculty) {
         super(disciplineName, lectureLesson, practiceLesson);
         this.group = group;

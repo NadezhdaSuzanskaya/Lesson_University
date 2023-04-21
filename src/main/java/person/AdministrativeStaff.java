@@ -6,6 +6,8 @@ public class AdministrativeStaff extends Employee{
     private String role;
     private double premium;
 
+    public AdministrativeStaff() {};
+
     public AdministrativeStaff(String name,  String individualNumber, String startDate,int numberOfWorkHours, String role,double premium) {
         super(name, individualNumber, startDate, numberOfWorkHours);
         this.role = role;

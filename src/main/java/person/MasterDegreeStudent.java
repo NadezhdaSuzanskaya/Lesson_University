@@ -5,6 +5,9 @@ public class MasterDegreeStudent extends Student{
 
     private String firstDegree;
     private String termOfStudy;
+
+    public MasterDegreeStudent(){}
+
     public MasterDegreeStudent(String name, byte age, String address, String phone, String numberOfRecordBook, String firstDegree, String termOfStudy) {
 
         super(name, age, address, phone, numberOfRecordBook);

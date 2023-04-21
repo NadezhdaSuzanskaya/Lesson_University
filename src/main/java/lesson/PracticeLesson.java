@@ -7,7 +7,8 @@ public class PracticeLesson extends Lesson{
     private Assistant assistant;
     private int countOfPractice;
 
-
+    public PracticeLesson() {
+    }
 
     public PracticeLesson(int duration, String classRoom, Assistant assistant, int countOfPractice) {
         super(duration, classRoom);

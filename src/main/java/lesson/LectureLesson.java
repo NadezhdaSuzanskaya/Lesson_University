@@ -6,6 +6,8 @@ public class LectureLesson extends Lesson{
     private Professor professor;
     private byte countOfLecture;
 
+    public LectureLesson() {
+    }
 
     public LectureLesson(int duration, String classRoom, Professor professor, byte countOfLecture) {
         super(duration, classRoom);

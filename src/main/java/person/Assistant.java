@@ -6,7 +6,10 @@ public class Assistant extends Employee{
     private double overTimeHours;
     private byte countOfLabs;
 
-    public Assistant(String name, String individualNumber, String startDate, int numberOfWorkHours,  double rate, double overTimeHours, byte countOfLabs) {
+    public Assistant() {
+    }
+
+    public Assistant(String name, String individualNumber, String startDate, int numberOfWorkHours, double rate, double overTimeHours, byte countOfLabs) {
         super(name, individualNumber, startDate,numberOfWorkHours);
         this.overTimeHours = overTimeHours;
         this.countOfLabs= countOfLabs;

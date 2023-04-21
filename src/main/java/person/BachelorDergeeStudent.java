@@ -4,6 +4,9 @@ public class BachelorDergeeStudent extends Student{
 
     private boolean finished;
     private String termOfStudy;
+
+    public BachelorDergeeStudent(){}
+
     public BachelorDergeeStudent(String name, byte age, String address, String phone, String numberOfRecordBook, boolean finished, String termOfStudy) {
 
         super(name, age, address, phone, numberOfRecordBook);
