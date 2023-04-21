@@ -13,5 +13,3 @@ Done for the class 04/21/2023:
    - calcBonus() (class Professor, Assistant, AdministrativeStaff);
 - added new package for constants
 - added final constant 'RATE' (class PersonConstants), final methods minSalary() and calcSalary() (class Employee)
-
-
