@@ -1,10 +1,15 @@
 package person;
 
-public class OtherStaff extends Employee{
+import constants.PersonConstants;
+
+public class AdministrativeStaff extends Employee{
     private String role;
-    public OtherStaff(double min_salary, String role) {
-        super(min_salary);
+    private double premium;
+
+    public AdministrativeStaff(String name,  String individualNumber, String startDate,int numberOfWorkHours, String role,double premium) {
+        super(name, individualNumber, startDate, numberOfWorkHours);
         this.role = role;
+        this.premium = premium;
     }
 
     public String getRole() {
@@ -15,12 +20,22 @@ public class OtherStaff extends Employee{
         this.role = role;
     }
 
-    @Override
-    public double calcSalary() {
-       return getMin_salary();
+    public double getPremium() {
+        return premium;
     }
 
-    public void getStaffRole(String role) {
-        System.out.println("The staff role is : "+ role +"\n");
+    public void setPremium(double premium) {
+        this.premium = premium;
+    }
+
+    @Override
+    public double calcBonus(){
+        return   PersonConstants.RATE +getPremium();
+
+    }
+
+    @Override
+    public String toString() {
+        return "The staff role is : "+ getRole() +"\n";
     }
 }

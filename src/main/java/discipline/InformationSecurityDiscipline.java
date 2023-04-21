@@ -3,13 +3,13 @@ package discipline;
 import lesson.LectureLesson;
 import lesson.PracticeLesson;
 
-public class InformationSecurity extends Discipline{
+public class InformationSecurityDiscipline extends Discipline{
 
     private int group;
     private String teachingCourse ;
     private String teachingFaculty ;
 
-    public InformationSecurity(String disciplineName, LectureLesson lectureLesson, PracticeLesson practiceLesson, int group, String teachingCourse, String teachingFaculty) {
+    public InformationSecurityDiscipline(String disciplineName, LectureLesson lectureLesson, PracticeLesson practiceLesson, int group, String teachingCourse, String teachingFaculty) {
         super(disciplineName, lectureLesson, practiceLesson);
         this.group = group;
         this.teachingCourse = teachingCourse;
@@ -50,7 +50,7 @@ public class InformationSecurity extends Discipline{
             return false;
         }
 
-        InformationSecurity informationSecurity = (InformationSecurity) obj;
+        InformationSecurityDiscipline informationSecurity = (InformationSecurityDiscipline) obj;
         return  group == informationSecurity.group
                 && (teachingCourse == informationSecurity.teachingCourse  || (teachingCourse != null && teachingCourse .equals(informationSecurity.getTeachingCourse())))
                 && (teachingFaculty == informationSecurity.teachingFaculty  || (teachingFaculty != null && teachingFaculty .equals(informationSecurity.getTeachingFaculty())))

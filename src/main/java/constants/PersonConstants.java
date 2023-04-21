@@ -1,5 +1,5 @@
 package constants;
 
-public class Constants {
-    public final int MIN_SALARY = 900;
+public class PersonConstants {
+    public static final int RATE = 55;
 }

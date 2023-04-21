@@ -29,9 +29,9 @@ public class MasterDegreeStudent extends Student{
     }
 
     @Override
-    public void printPersonalInfo() {
-        System.out.println("Info about Master Degree Student:"+ "\n"+"name:"+super.getName()+"  age:"+super.getAge()+"  adress:"+super.getAddress()
-                +"  phone:"+super.getPhone()+"  number of record book:"+super.getNumberOfRecordBook()
-                +"  First degree:"+this.getFirstDegree()+"  term of study:"+this.getTermOfStudy()+"\n");
+    public String toString() {
+        return "Info about Master Degree Student:"+ "\n"+"name:"+getName()+"  age:"+getAge()+"  adress:"+getAddress()
+                +"  phone:"+getPhone()+"  number of record book:"+getNumberOfRecordBook()
+                +"  First degree:"+getFirstDegree()+"  term of study:"+getTermOfStudy()+"\n";
     }
 }

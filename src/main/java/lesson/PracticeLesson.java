@@ -1,4 +1,4 @@
-package discipline;
+package lesson;
 
 import person.Assistant;
 

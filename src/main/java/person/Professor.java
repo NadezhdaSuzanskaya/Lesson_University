@@ -1,15 +1,33 @@
 package person;
+import constants.PersonConstants;
 
-public class Professor extends Teacher{
-    private double bonuse;
+public class Professor extends Employee{
+    private int professorDegree;
+    private double overTimeHours;
     private byte countOfExam;
 
-    public double getBonuse() {
-        return bonuse;
+
+    public Professor(String name,  String individualNumber, String startDate, int numberOfWorkHours, int professorDegree, double overTimeHours, byte countOfExam) {
+        super(name,  individualNumber, startDate,numberOfWorkHours);
+        this.professorDegree = professorDegree;
+        this.overTimeHours = overTimeHours;
+        this.countOfExam = countOfExam;
     }
 
-    public void setBonuse(double bonuse) {
-        this.bonuse = bonuse;
+    public int getProfessorDegree() {
+        return professorDegree;
+    }
+
+    public void setProfessorDegree(int professorDegree) {
+        this.professorDegree = professorDegree;
+    }
+
+    public double getOverTimeHours() {
+        return overTimeHours;
+    }
+
+    public void setOverTimeHours(double overTimeHours) {
+        this.overTimeHours = overTimeHours;
     }
 
     public byte getCountOfExam() {
@@ -20,24 +38,17 @@ public class Professor extends Teacher{
         this.countOfExam = countOfExam;
     }
 
-    public Professor( double min_salary, String subject, double rate, double bonuse, byte countOfExam) {
-        super( min_salary,  subject,  rate);
-        this.bonuse=bonuse;
-        this.countOfExam = countOfExam;
+    @Override
+    public double calcBonus(){
+        return  getProfessorDegree()* PersonConstants.RATE * getOverTimeHours();
+
     }
 
     @Override
-    public void calcSalary() {
-        double professorSalary = super.getRate()*super.getMin_salary()+this.getBonuse();
-        System.out.println("Professor's salary is: "+professorSalary);
-    }
-    public void giveLecture() {
-
-        System.out.println("Professor gives lecture 3 times per week ");
+    public String toString()
+    {
+        return "Professor "+getName()+ " with the individual number "+getIndividualNumber()+
+                " has been working since : "+getStartDate() + " and gives "+ getCountOfExam() +" exams per year";
     }
 
-    public void giveExam(byte countOfExam) {
-
-        System.out.println("Professor gives "+ countOfExam +" exams per year");
-    }
 }

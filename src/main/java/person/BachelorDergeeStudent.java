@@ -1,10 +1,10 @@
 package person;
 
-public class FirstDegreeStudent extends Student{
+public class BachelorDergeeStudent extends Student{
 
-    protected boolean finished;
+    private boolean finished;
     private String termOfStudy;
-    public FirstDegreeStudent(String name, byte age, String address, String phone, String numberOfRecordBook, boolean finished, String termOfStudy) {
+    public BachelorDergeeStudent(String name, byte age, String address, String phone, String numberOfRecordBook, boolean finished, String termOfStudy) {
 
         super(name, age, address, phone, numberOfRecordBook);
         this.finished = finished;
@@ -28,9 +28,9 @@ public class FirstDegreeStudent extends Student{
     }
 
     @Override
-    public void printPersonalInfo() {
-        System.out.println("Info about First Degree Student: "+"\n"+ "name:"+super.getName() +"  age:"+super.getAge()+"  adress:"+super.getAddress()
-                +"  phone:"+super.getPhone()+"  number of record book:"+super.getNumberOfRecordBook()
-                + "  finished:"+this.finished+ "  term of study:"+this.getTermOfStudy()+"\n");
+    public String toString() {
+        return "Info about First Degree Student: "+"\n"+ "name:"+getName() +"  age:"+getAge()+"  adress:"+getAddress()
+                +"  phone:"+getPhone()+"  number of record book:"+getNumberOfRecordBook()
+                + "  finished:"+finished+ "  term of study:"+getTermOfStudy()+"\n";
     }
 }

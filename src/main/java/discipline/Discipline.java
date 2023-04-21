@@ -1,20 +1,40 @@
 package discipline;
 
-public abstract class Discipline {
-    protected String disciplineName = "Probability theory";
+import lesson.LectureLesson;
+import lesson.PracticeLesson;
 
-    public Discipline() {}
+public abstract class Discipline {
+    protected String disciplineName ;
+    protected LectureLesson lectureLesson;
+    protected PracticeLesson practiceLesson;
+
+    public Discipline(String disciplineName, LectureLesson lectureLesson, PracticeLesson practiceLesson) {
+        this.disciplineName = disciplineName;
+        this.lectureLesson = lectureLesson;
+        this.practiceLesson = practiceLesson;
+    }
 
     public String getDisciplineName() {
         return disciplineName;
     }
 
-    public String setDisciplineName(String disciplineName) {
+    public void setDisciplineName(String disciplineName) {
         this.disciplineName = disciplineName;
-        return disciplineName;
     }
 
-public abstract void printInfo();
+    public LectureLesson getLectureLesson() {
+        return lectureLesson;
+    }
 
+    public void setLectureLesson(LectureLesson lectureLesson) {
+        this.lectureLesson = lectureLesson;
+    }
 
+    public PracticeLesson getPracticeLesson() {
+        return practiceLesson;
+    }
+
+    public void setPracticeLesson(PracticeLesson practiceLesson) {
+        this.practiceLesson = practiceLesson;
+    }
 }

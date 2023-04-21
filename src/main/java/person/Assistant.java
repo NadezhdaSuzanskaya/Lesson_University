@@ -1,27 +1,43 @@
 package person;
 
-public class Assistant extends Teacher{
-    private double bonuse;
+import constants.PersonConstants;
 
-    public double getBonuse() {
-        return bonuse;
+public class Assistant extends Employee{
+    private double overTimeHours;
+    private byte countOfLabs;
+
+    public Assistant(String name, String individualNumber, String startDate, int numberOfWorkHours,  double rate, double overTimeHours, byte countOfLabs) {
+        super(name, individualNumber, startDate,numberOfWorkHours);
+        this.overTimeHours = overTimeHours;
+        this.countOfLabs= countOfLabs;
     }
 
-    public void setBonuse(double bonuse) {
-        this.bonuse = bonuse;
+    public double getOverTimeHours() {
+        return overTimeHours;
     }
 
-    public Assistant(double min_salary, String subject, double rate, double bonuse) {
-        super(min_salary, subject, rate);
-        this.bonuse = bonuse;
+    public void setOverTimeHours(double overTimeHours) {
+        this.overTimeHours = overTimeHours;
     }
+
+    public byte getCountOfLabs() {
+        return countOfLabs;
+    }
+
+    public void setCountOfLabs(byte countOfLabs) {
+        this.countOfLabs = countOfLabs;
+    }
+
     @Override
-    public void calcSalary() {
-        double assistantSalary = super.getRate()*super.getMin_salary()+this.getBonuse();
-        System.out.println("\n"+"Assistant's salary is: "+assistantSalary);
-    }
-    public void giveLabs() {
+    public double calcBonus(){
+        return   PersonConstants.RATE *getOverTimeHours();
 
-        System.out.println("Assistant gives labs every day"+"\n");
+    }
+
+    @Override
+    public String toString()
+    {
+        return "Assistent "+getName()+ " with the individual number "+getIndividualNumber()+" has been working since : "
+                +getStartDate() + " and gives "+  getCountOfLabs()+" labs per day";
     }
 }

@@ -1,12 +1,12 @@
-import discipline.Exam;
-import discipline.Faculty;
-import discipline.LectureLesson;
-import discipline.PracticeLesson;
+import discipline.EcomonicDiscipline;
+import discipline.InformationSecurityDiscipline;
+import lesson.LectureLesson;
+import lesson.PracticeLesson;
 import person.Assistant;
-import person.FirstDegreeStudent;
+import person.BachelorDergeeStudent;
 import person.MasterDegreeStudent;
 import person.Professor;
-import person.OtherStaff;
+import person.AdministrativeStaff;
 
 public class University {
     public static void main(String[] args) {
@@ -24,55 +24,47 @@ public class University {
         String master_firstDegree = "bachelor";
         String master_termOfStudy = "2022-2025";
 
-        double professor_min_salary = 678.50;
-        String professor_subject="Logistics";
-        double professor_rate=2.5;
-        double professor_bonus=350;
-        double assistant_bonus=50;
-        byte professor_countOfExam=2;
-
         boolean finished = false;
-        String staff_role = "laboratory assistant";
 
 
       MasterDegreeStudent masterDegreeStudent = new MasterDegreeStudent(master_name, master_age, master_address, master_phone, master_numberOfRecordBook, master_firstDegree, master_termOfStudy);
-      masterDegreeStudent.printPersonalInfo();
+      System.out.println(masterDegreeStudent);
 
-      FirstDegreeStudent firstDegreeStudent = new FirstDegreeStudent(student_name, student_age, student_address, student_phone, student_numberOfRecordBook, finished, master_termOfStudy);
-      firstDegreeStudent.printPersonalInfo();
+      BachelorDergeeStudent firstDegreeStudent = new BachelorDergeeStudent(student_name, student_age, student_address, student_phone, student_numberOfRecordBook, finished, master_termOfStudy);
+      System.out.println(firstDegreeStudent);
 
-      Professor professor = new Professor(professor_min_salary, professor_subject, professor_rate, professor_bonus, professor_countOfExam);
-      professor.calcSalary();
-      professor.giveLecture();
-      professor.giveExam(professor_countOfExam);
+      Professor professor = new Professor("Doris","12-12-08","12-01-2019", 160, 2,250, (byte) 3);
+      System.out.println("Professor salary is: "+professor.calcSalary());
+      System.out.println(professor);
 
-      Assistant assistant = new Assistant(professor_min_salary, professor_subject, professor_rate, assistant_bonus);
-      assistant.calcSalary();
-      assistant.giveLabs();
+      Assistant assistant = new Assistant("Monika","18-88-00","21-02-2000",172,2, 200, (byte) 5);
+      System.out.println("Assistent salary is: "+assistant.calcSalary());
+      System.out.println(assistant);
 
-      OtherStaff otherStaff = new OtherStaff(professor_min_salary, staff_role);
-      otherStaff.calcSalary();
-      otherStaff.getStaffRole(staff_role);
+      AdministrativeStaff admStaff = new AdministrativeStaff("David ",  "01-01-99", "01-01-1999",168,"laboratory assistant", 400.99);
+      System.out.println("Administrative staff salary is: "+admStaff.calcSalary());
+      System.out.println(admStaff);
 
-      LectureLesson lectureLesson= new LectureLesson();
-      lectureLesson.printInfo();
+      LectureLesson lectureLesson= new LectureLesson(90, "202B",professor, (byte) 32);
+      System.out.println(lectureLesson);
 
-      PracticeLesson practiceLesson = new PracticeLesson();
-      practiceLesson.printInfo();
-      practiceLesson.printInfo(practiceLesson.setAssistentName("Test"), practiceLesson.setDisciplineName("Programming"),practiceLesson.setCountOfLecture(45) );
+      PracticeLesson practiceLesson = new PracticeLesson(45,"101A", assistant, 30);
+      System.out.println(practiceLesson);
 
-      Exam exam= new Exam();
-      exam.printInfo();
+      EcomonicDiscipline ecomonicDiscipline1 = new EcomonicDiscipline("Ecomonic", lectureLesson, practiceLesson, 303, "4", "Marketing Faculty");
+      EcomonicDiscipline ecomonicDiscipline2 = new EcomonicDiscipline("Ecomonic", lectureLesson, practiceLesson, 304, "4", "Marketing Faculty");
 
-      Faculty faculty = new Faculty();
-      faculty.printInfo();
+       if (ecomonicDiscipline1.equals(ecomonicDiscipline2))
+        {System.out.println("The group "+ecomonicDiscipline1.getGroup()+ " has already "+ecomonicDiscipline2.getDisciplineName()+" in the schedule");}
+       else
+        {System.out.println("The group "+ecomonicDiscipline1.getGroup()+ " hasn't  "+ecomonicDiscipline2.getDisciplineName()+" in the schedule");}  ;
 
+       InformationSecurityDiscipline informationSecurity1 = new InformationSecurityDiscipline("Information security online", lectureLesson, practiceLesson, 101, "2", "Faculty of Computer Systems");
+       InformationSecurityDiscipline informationSecurity2 = new InformationSecurityDiscipline("Information security online", lectureLesson, practiceLesson, 101, "2", "Faculty of Computer Systems");
 
-
-
-
-
-
-
+        if (informationSecurity1.equals(informationSecurity2))
+        {System.out.println("The group "+informationSecurity1.getGroup()+ " has already "+informationSecurity2.getDisciplineName()+" in the schedule");}
+        else
+        {System.out.println("The group "+informationSecurity1.getGroup()+ " hasn't  "+informationSecurity2.getDisciplineName()+" in the schedule");}  ;
     }
 }

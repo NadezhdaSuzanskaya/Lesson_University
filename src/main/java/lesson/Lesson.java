@@ -1,4 +1,4 @@
-package discipline;
+package lesson;
 
 public abstract class Lesson {
     protected int duration;

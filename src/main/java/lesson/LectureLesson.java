@@ -1,4 +1,4 @@
-package discipline;
+package lesson;
 
 import person.Professor;
 
@@ -31,7 +31,8 @@ public class LectureLesson extends Lesson{
 
     @Override
     public String toString () {
-        return "Info about lecture lessons: "+"\n"+"  Professor name is: "+getProfessor() +"  Count of lesson is: " +getCountOfLecture()+"  Classroom is: " +getClassRoom()+"\n";
+        return "Info about lecture lessons: "+"\n"+"  Professor name is: "+getProfessor() +"  Count of lesson is: "
+                +getCountOfLecture()+"  Classroom is: " +getClassRoom()+"\n";
     }
 
 

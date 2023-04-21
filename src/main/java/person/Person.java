@@ -1,10 +1,10 @@
 package person;
 
 public abstract class Person {
-    private String name;
-    private byte age;
-    private String address;
-    private String phone;
+    protected String name;
+    protected byte age;
+    protected String address;
+    protected String phone;
 
     public Person(String name, byte age, String address, String phone) {
         this.name = name;
@@ -13,7 +13,9 @@ public abstract class Person {
         this.phone = phone;
     }
 
-    public  Person() {};
+    public  Person(String name) {
+        this.name = name;
+    };
 
     public byte getAge() {
         return age;
