@@ -2,7 +2,6 @@ package person;
 
 public class FirstDegreeStudent extends Student{
 
-
     protected boolean finished;
     private String termOfStudy;
     public FirstDegreeStudent(String name, byte age, String address, String phone, String numberOfRecordBook, boolean finished, String termOfStudy) {

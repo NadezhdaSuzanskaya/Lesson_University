@@ -16,8 +16,8 @@ public class OtherStaff extends Employee{
     }
 
     @Override
-    public void calcSalary() {
-       System.out.println("For other staff the salary is: "+ super.getMin_salary());
+    public double calcSalary() {
+       return getMin_salary();
     }
 
     public void getStaffRole(String role) {
