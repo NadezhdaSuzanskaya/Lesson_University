@@ -1,16 +1,17 @@
 package lesson;
 
+import interfaces.IChangeCountOfLesson;
 import person.Assistant;
 
-public class PracticeLesson extends Lesson{
+public class PracticeLesson extends Lesson implements IChangeCountOfLesson {
 
     private Assistant assistant;
-    private int countOfPractice;
+    private byte countOfPractice;
 
     public PracticeLesson() {
     }
 
-    public PracticeLesson(int duration, String classRoom, Assistant assistant, int countOfPractice) {
+    public PracticeLesson(int duration, String classRoom, Assistant assistant, byte countOfPractice) {
         super(duration, classRoom);
         this.assistant = assistant;
         this.countOfPractice = countOfPractice;
@@ -24,19 +25,23 @@ public class PracticeLesson extends Lesson{
         this.assistant = assistant;
     }
 
-    public int getCountOfPractice() {
+    public byte getCountOfPractice() {
         return countOfPractice;
     }
 
-    public int setCountOfPractice(int countOfPractice) {
+    public byte setCountOfPractice(byte countOfPractice) {
         this.countOfPractice = countOfPractice;
         return countOfPractice;
     }
 
     @Override
     public String toString()  {
-       return "Info about practice lessons:"+"\n"+"Assistent name is: "+getAssistant()+
-                " Laboratory is: "+getClass()+"Count of lessons is: "+getCountOfPractice();
+       return "Info about practice lessons:"+"\n"+" Assistent name is: "+getAssistant()+
+                " Laboratory is: "+getClassRoom()+" Count of lessons is: "+getCountOfPractice();
     }
-
+    @Override
+    public byte changeCountOfLesson(byte newCountOfLecture) {
+        setCountOfPractice(newCountOfLecture);
+        return getCountOfPractice();
+    }
 }

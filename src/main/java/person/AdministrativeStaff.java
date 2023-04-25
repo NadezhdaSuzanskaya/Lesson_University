@@ -31,7 +31,7 @@ public class AdministrativeStaff extends Employee{
     }
 
     @Override
-    public double calcBonus(){
+    public double checkCalculationOfBonus(){
         return   PersonConstants.RATE +getPremium();
 
     }

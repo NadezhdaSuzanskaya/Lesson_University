@@ -1,21 +1,21 @@
 package discipline;
 
+import enums.Departments;
+import enums.Semesters;
 import lesson.LectureLesson;
 import lesson.PracticeLesson;
 
 public class InformationSecurityDiscipline extends Discipline{
 
     private int group;
-    private String teachingCourse ;
-    private String teachingFaculty ;
+    private Semesters teachingSemester ;
 
     public InformationSecurityDiscipline(){}
 
-    public InformationSecurityDiscipline(String disciplineName, LectureLesson lectureLesson, PracticeLesson practiceLesson, int group, String teachingCourse, String teachingFaculty) {
+    public InformationSecurityDiscipline( String disciplineName, Semesters semesters, LectureLesson lectureLesson, PracticeLesson practiceLesson, int group){
         super(disciplineName, lectureLesson, practiceLesson);
         this.group = group;
-        this.teachingCourse = teachingCourse;
-        this.teachingFaculty = teachingFaculty;
+        this.teachingSemester = semesters;
     }
 
     public int getGroup() {
@@ -24,22 +24,6 @@ public class InformationSecurityDiscipline extends Discipline{
 
     public void setGroup(int group) {
         this.group = group;
-    }
-
-    public String getTeachingCourse() {
-        return teachingCourse;
-    }
-
-    public void setTeachingCourse(String teachingCourse) {
-        this.teachingCourse = teachingCourse;
-    }
-
-    public String getTeachingFaculty() {
-        return teachingFaculty;
-    }
-
-    public void setTeachingFaculty(String teachingFaculty) {
-        this.teachingFaculty = teachingFaculty;
     }
 
     @Override
@@ -54,8 +38,8 @@ public class InformationSecurityDiscipline extends Discipline{
 
         InformationSecurityDiscipline informationSecurity = (InformationSecurityDiscipline) obj;
         return  group == informationSecurity.group
-                && (teachingCourse == informationSecurity.teachingCourse  || (teachingCourse != null && teachingCourse .equals(informationSecurity.getTeachingCourse())))
-                && (teachingFaculty == informationSecurity.teachingFaculty  || (teachingFaculty != null && teachingFaculty .equals(informationSecurity.getTeachingFaculty())))
-                && (disciplineName == informationSecurity.disciplineName  || (disciplineName != null && disciplineName .equals(informationSecurity.getDisciplineName())));
+      //          && (department == informationSecurity.department  || (department != null && department.equals(department.getDepartment())))
+                && (teachingSemester == informationSecurity.teachingSemester  || (teachingSemester != null && teachingSemester .equals(teachingSemester.getSemester())))
+                && (disciplineName == informationSecurity.disciplineName  || (disciplineName != null && disciplineName.equals(informationSecurity.getDisciplineName())));
     }
 }

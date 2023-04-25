@@ -1,5 +1,6 @@
 package person;
 
+import constants.CalcSalary;
 import constants.PersonConstants;
 
 public abstract class Employee extends Person {
@@ -41,16 +42,16 @@ public abstract class Employee extends Person {
         this.numberOfWorkHours = numberOfWorkHours;
     }
 
-    public final double minSalary()
+    public final double checkCalculationOfMinSalary()
     {
         return PersonConstants.RATE *getNumberOfWorkHours();
     };
 
-    public abstract double calcBonus();
+    public abstract double checkCalculationOfBonus();
 
-    public final double calcSalary()
+    public final double checkCalculationOfSalary()
     {
-       return minSalary()+calcBonus();
+       return checkCalculationOfMinSalary()+ checkCalculationOfBonus();
     };
 
 

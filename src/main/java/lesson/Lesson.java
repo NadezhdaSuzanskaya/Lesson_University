@@ -27,5 +27,5 @@ public abstract class Lesson {
     public void setClassRoom(String classRoom) {
         this.classRoom = classRoom;
     }
-//public abstract void printInfo();
+
 }

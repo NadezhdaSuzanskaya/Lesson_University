@@ -1,8 +1,10 @@
 package lesson;
 
+import interfaces.IChangeCountOfLesson;
+import interfaces.IChangeClassRoom;
 import person.Professor;
 
-public class LectureLesson extends Lesson{
+public class LectureLesson extends Lesson implements IChangeCountOfLesson, IChangeClassRoom {
     private Professor professor;
     private byte countOfLecture;
 
@@ -38,4 +40,15 @@ public class LectureLesson extends Lesson{
     }
 
 
+    @Override
+    public byte changeCountOfLesson(byte newCountOfLecture) {
+        setCountOfLecture(newCountOfLecture);
+        return getCountOfLecture();
+    }
+
+    @Override
+    public String changeClassRoom(String newClassRoom) {
+        setClassRoom(newClassRoom);
+        return getClassRoom();
+    }
 }
