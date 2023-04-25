@@ -10,10 +10,10 @@ public abstract class Student extends Person {
     }
 
     //creating a parameterized constructor
-    public  Student(String name, byte age, String address,String phone, String numberOfRecordBook, Departments department){
+    public Student(String name, byte age, String address, String phone, String numberOfRecordBook, Departments department) {
         super(name, age, address, phone);
-        this.numberOfRecordBook=numberOfRecordBook;
-        this.department= department;
+        this.numberOfRecordBook = numberOfRecordBook;
+        this.department = department;
     }
 
     public Departments getDepartment() {

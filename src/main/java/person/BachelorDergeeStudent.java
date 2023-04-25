@@ -9,7 +9,8 @@ public class BachelorDergeeStudent extends Student implements IChangeDepartment,
     private boolean finished;
     private String termOfStudy;
 
-    public BachelorDergeeStudent(){}
+    public BachelorDergeeStudent() {
+    }
 
     public BachelorDergeeStudent(String name, byte age, String address, String phone, String numberOfRecordBook, Departments department, boolean finished, String termOfStudy) {
 
@@ -35,12 +36,11 @@ public class BachelorDergeeStudent extends Student implements IChangeDepartment,
     }
 
 
-
     @Override
     public String toString() {
-        return "Info about First Degree Student: "+"\n"+ "name:"+getName() +"  age:"+getAge()+"  adress:"+getAddress()
-                +"  phone:"+getPhone()+"  number of record book:"+getNumberOfRecordBook() +" department name is: "+department.getDepartment()
-                + "  finished:"+finished+ "  term of study:"+getTermOfStudy()+"\n";
+        return "Info about First Degree Student: " + "\n" + "name:" + getName() + "  age:" + getAge() + "  adress:" + getAddress()
+                + "  phone:" + getPhone() + "  number of record book:" + getNumberOfRecordBook() + " department name is: " + department.getDepartment()
+                + "  finished:" + finished + "  term of study:" + getTermOfStudy() + "\n";
     }
 
     @Override

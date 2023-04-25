@@ -10,9 +10,10 @@ public class MasterDegreeStudent extends Student implements IChangeDepartment, I
     private String firstDegree;
     private String termOfStudy;
 
-    public MasterDegreeStudent(){}
+    public MasterDegreeStudent() {
+    }
 
-    public MasterDegreeStudent(String name, byte age, String address, String phone, String numberOfRecordBook, Departments department,  String firstDegree, String termOfStudy) {
+    public MasterDegreeStudent(String name, byte age, String address, String phone, String numberOfRecordBook, Departments department, String firstDegree, String termOfStudy) {
 
         super(name, age, address, phone, numberOfRecordBook, department);
         this.firstDegree = firstDegree;
@@ -37,9 +38,9 @@ public class MasterDegreeStudent extends Student implements IChangeDepartment, I
 
     @Override
     public String toString() {
-        return "Info about Master Degree Student:"+ "\n"+"name:"+getName()+"  age:"+getAge()+"  adress:"+getAddress()
-                +"  phone:"+getPhone()+"  number of record book:"+getNumberOfRecordBook()+" department name is: "+department.getDepartment()
-                +"  First degree:"+getFirstDegree()+"  term of study:"+getTermOfStudy()+"\n";
+        return "Info about Master Degree Student:" + "\n" + "name:" + getName() + "  age:" + getAge() + "  adress:" + getAddress()
+                + "  phone:" + getPhone() + "  number of record book:" + getNumberOfRecordBook() + " department name is: " + department.getDepartment()
+                + "  First degree:" + getFirstDegree() + "  term of study:" + getTermOfStudy() + "\n";
     }
 
     @Override
@@ -47,6 +48,7 @@ public class MasterDegreeStudent extends Student implements IChangeDepartment, I
         setDepartment(newDepartment);
         return getDepartment();
     }
+
     @Override
     public void leavePositiveFeetback() {
         System.out.println("Thanks for the great professorial staff\n");

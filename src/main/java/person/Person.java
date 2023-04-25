@@ -6,7 +6,8 @@ public abstract class Person {
     protected String address;
     protected String phone;
 
-    public Person (){};
+    public Person() {
+    }
 
     public Person(String name, byte age, String address, String phone) {
         this.name = name;
@@ -15,23 +16,23 @@ public abstract class Person {
         this.phone = phone;
     }
 
-    public  Person(String name) {
+    public Person(String name) {
         this.name = name;
-    };
+    }
 
     public byte getAge() {
         return age;
     }
 
-    public String getName(){
+    public String getName() {
         return name;
     }
 
-    public String getAddress(){
+    public String getAddress() {
         return address;
     }
 
-    public String getPhone(){
+    public String getPhone() {
         return phone;
     }
 

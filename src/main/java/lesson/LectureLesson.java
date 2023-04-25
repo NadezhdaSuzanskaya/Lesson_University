@@ -34,9 +34,9 @@ public class LectureLesson extends Lesson implements IChangeCountOfLesson, IChan
     }
 
     @Override
-    public String toString () {
-        return "Info about lecture lessons: "+"\n"+"  Professor name is: "+getProfessor() +"  Count of lesson is: "
-                +getCountOfLecture()+"  Classroom is: " +getClassRoom()+"\n";
+    public String toString() {
+        return "Info about lecture lessons: " + "\n" + "  Professor name is: " + getProfessor() + "  Count of lesson is: "
+                + getCountOfLecture() + "  Classroom is: " + getClassRoom() + "\n";
     }
 
 

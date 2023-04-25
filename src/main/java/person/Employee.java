@@ -9,12 +9,13 @@ public abstract class Employee extends Person {
     protected String startDate;
     protected int numberOfWorkHours;
 
-    public Employee(){}
+    public Employee() {
+    }
 
-    public Employee( String name, String individualNumber, String startDate, int numberOfWorkHours) {
+    public Employee(String name, String individualNumber, String startDate, int numberOfWorkHours) {
         super(name);
         this.individualNumber = individualNumber;
-        this.startDate=startDate;
+        this.startDate = startDate;
         this.numberOfWorkHours = numberOfWorkHours;
     }
 
@@ -42,17 +43,19 @@ public abstract class Employee extends Person {
         this.numberOfWorkHours = numberOfWorkHours;
     }
 
-    public final double checkCalculationOfMinSalary()
-    {
-        return PersonConstants.RATE *getNumberOfWorkHours();
-    };
+    public final double checkCalculationOfMinSalary() {
+        return PersonConstants.RATE * getNumberOfWorkHours();
+    }
+
+    ;
 
     public abstract double checkCalculationOfBonus();
 
-    public final double checkCalculationOfSalary()
-    {
-       return checkCalculationOfMinSalary()+ checkCalculationOfBonus();
-    };
+    public final double checkCalculationOfSalary() {
+        return checkCalculationOfMinSalary() + checkCalculationOfBonus();
+    }
+
+    ;
 
 
 }

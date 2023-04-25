@@ -35,10 +35,11 @@ public class PracticeLesson extends Lesson implements IChangeCountOfLesson {
     }
 
     @Override
-    public String toString()  {
-       return "Info about practice lessons:"+"\n"+" Assistent name is: "+getAssistant()+
-                " Laboratory is: "+getClassRoom()+" Count of lessons is: "+getCountOfPractice();
+    public String toString() {
+        return "Info about practice lessons:" + "\n" + " Assistent name is: " + getAssistant() +
+                " Laboratory is: " + getClassRoom() + " Count of lessons is: " + getCountOfPractice();
     }
+
     @Override
     public byte changeCountOfLesson(byte newCountOfLecture) {
         setCountOfPractice(newCountOfLecture);

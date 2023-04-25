@@ -2,13 +2,14 @@ package person;
 
 import constants.PersonConstants;
 
-public class AdministrativeStaff extends Employee{
+public class AdministrativeStaff extends Employee {
     private String role;
     private double premium;
 
-    public AdministrativeStaff() {};
+    public AdministrativeStaff() {
+    }
 
-    public AdministrativeStaff(String name,  String individualNumber, String startDate,int numberOfWorkHours, String role,double premium) {
+    public AdministrativeStaff(String name, String individualNumber, String startDate, int numberOfWorkHours, String role, double premium) {
         super(name, individualNumber, startDate, numberOfWorkHours);
         this.role = role;
         this.premium = premium;
@@ -31,13 +32,13 @@ public class AdministrativeStaff extends Employee{
     }
 
     @Override
-    public double checkCalculationOfBonus(){
-        return   PersonConstants.RATE +getPremium();
+    public double checkCalculationOfBonus() {
+        return PersonConstants.RATE + getPremium();
 
     }
 
     @Override
     public String toString() {
-        return "The staff role is : "+ getRole() +"\n";
+        return "The staff role is : " + getRole() + "\n";
     }
 }

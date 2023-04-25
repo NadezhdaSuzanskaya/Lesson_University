@@ -5,14 +5,15 @@ import enums.Semesters;
 import lesson.LectureLesson;
 import lesson.PracticeLesson;
 
-public class InformationSecurityDiscipline extends Discipline{
+public class InformationSecurityDiscipline extends Discipline {
 
     private int group;
-    private Semesters teachingSemester ;
+    private Semesters teachingSemester;
 
-    public InformationSecurityDiscipline(){}
+    public InformationSecurityDiscipline() {
+    }
 
-    public InformationSecurityDiscipline( String disciplineName, Semesters semesters, LectureLesson lectureLesson, PracticeLesson practiceLesson, int group){
+    public InformationSecurityDiscipline(String disciplineName, Semesters semesters, LectureLesson lectureLesson, PracticeLesson practiceLesson, int group) {
         super(disciplineName, lectureLesson, practiceLesson);
         this.group = group;
         this.teachingSemester = semesters;
@@ -27,8 +28,7 @@ public class InformationSecurityDiscipline extends Discipline{
     }
 
     @Override
-    public boolean equals(Object obj)
-    {
+    public boolean equals(Object obj) {
         if (obj == this) {
             return true;
         }
@@ -37,9 +37,9 @@ public class InformationSecurityDiscipline extends Discipline{
         }
 
         InformationSecurityDiscipline informationSecurity = (InformationSecurityDiscipline) obj;
-        return  group == informationSecurity.group
-      //          && (department == informationSecurity.department  || (department != null && department.equals(department.getDepartment())))
-                && (teachingSemester == informationSecurity.teachingSemester  || (teachingSemester != null && teachingSemester .equals(teachingSemester.getSemester())))
-                && (disciplineName == informationSecurity.disciplineName  || (disciplineName != null && disciplineName.equals(informationSecurity.getDisciplineName())));
+        return group == informationSecurity.group
+                //          && (department == informationSecurity.department  || (department != null && department.equals(department.getDepartment())))
+                && (teachingSemester == informationSecurity.teachingSemester || (teachingSemester != null && teachingSemester.equals(teachingSemester.getSemester())))
+                && (disciplineName == informationSecurity.disciplineName || (disciplineName != null && disciplineName.equals(informationSecurity.getDisciplineName())));
     }
 }

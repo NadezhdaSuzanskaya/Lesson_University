@@ -1,4 +1,5 @@
 package person;
+
 import constants.PersonConstants;
 import enums.Departments;
 import interfaces.IAskBonus;
@@ -10,15 +11,17 @@ public class Professor extends Employee implements IAskBonus, IChangeDepartment 
     private byte countOfExam;
     protected Departments department;
     public static int count = 0;
-    public Professor(){}
 
-    public Professor(String name,  String individualNumber, String startDate, int numberOfWorkHours, int professorDegree, double overTimeHours, byte countOfExam, Departments department) {
-        super(name,  individualNumber, startDate,numberOfWorkHours);
+    public Professor() {
+    }
+
+    public Professor(String name, String individualNumber, String startDate, int numberOfWorkHours, int professorDegree, double overTimeHours, byte countOfExam, Departments department) {
+        super(name, individualNumber, startDate, numberOfWorkHours);
         this.professorDegree = professorDegree;
         this.overTimeHours = overTimeHours;
         this.countOfExam = countOfExam;
-        this.department= department;
-        count ++;
+        this.department = department;
+        count++;
     }
 
     public int getProfessorDegree() {
@@ -54,26 +57,25 @@ public class Professor extends Employee implements IAskBonus, IChangeDepartment 
     }
 
     @Override
-    public double checkCalculationOfBonus(){
-        return  getProfessorDegree()* PersonConstants.RATE * getOverTimeHours();
+    public double checkCalculationOfBonus() {
+        return getProfessorDegree() * PersonConstants.RATE * getOverTimeHours();
 
     }
 
     @Override
-    public String toString()
-    {
-        return "Professor "+getName()+ " with the individual number "+getIndividualNumber()+
-                " has been working since : "+getStartDate() + " and gives "+ getCountOfExam() +" exams per year."+"His department is: " + department.getDepartment();
+    public String toString() {
+        return "Professor " + getName() + " with the individual number " + getIndividualNumber() +
+                " has been working since : " + getStartDate() + " and gives " + getCountOfExam() + " exams per year." + "His department is: " + department.getDepartment();
     }
 
     @Override
     public void askPersonalBonus() {
-        System.out.println("Can I have monthly bonus because I have " +getOverTimeHours()+" overtimes Hours?");
+        System.out.println("Can I have monthly bonus because I have " + getOverTimeHours() + " overtimes Hours?");
     }
 
     @Override
     public String askBonusForCollege() {
-        return "I recommend this person"+getName()+" to receive a bonus for the last month";
+        return "I recommend this person" + getName() + " to receive a bonus for the last month";
     }
 
     @Override
