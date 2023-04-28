@@ -2,11 +2,11 @@ package person;
 
 import enums.Departments;
 import interfaces.IChangeDepartment;
-import interfaces.Feedback;
+import interfaces.IFeedback;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class BachelorDergeeStudent extends Student implements IChangeDepartment, Feedback {
+public class BachelorDergeeStudent extends Student implements IChangeDepartment, IFeedback {
     private static final Logger LOGGER = LogManager.getLogger();
     private boolean finished;
     private String termOfStudy;

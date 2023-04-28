@@ -1,6 +1,6 @@
 package interfaces;
 
-public interface Feedback {
+public interface IFeedback {
     void leavePositiveFeedback();
 
     void leaveComplain();
