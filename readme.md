@@ -26,4 +26,15 @@ Done for the class 04/25/2023:
   -- ILeaveFeetback (implements in the classes  BachelorDergeeStudent, MasterDegreeStudent)
 - created static variable (int count) in the class Professor
 - created final class CalcSalary with the method calcMinSalary
+----------------------------------------------
+Done for the class 04/28/2023:
+- created 5 custom exceptions:
+   -- LargeNumberException (used in the class University in try-catch block)
+   -- LongValueException (used in the class Professor method askBonusForCollege)
+   -- NegativeValueException (used in the  University in try-catch block)
+   -- NullValueException (used in the class Professor method askBonusForCollege)
+   -- SpecificSymbolException (used in the class Professor method askBonusForCollege)
+- handled exceptions in 2 ways
+- used try-catch with resources
+- logged messages to the console, file
 

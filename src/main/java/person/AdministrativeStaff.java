@@ -1,8 +1,11 @@
 package person;
 
 import constants.PersonConstants;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class AdministrativeStaff extends Employee {
+    private static final Logger LOGGER = LogManager.getLogger();
     private String role;
     private double premium;
 
@@ -33,12 +36,16 @@ public class AdministrativeStaff extends Employee {
 
     @Override
     public double checkCalculationOfBonus() {
-        return PersonConstants.RATE + getPremium();
+        double bonuses;
+        bonuses = PersonConstants.RATE + getPremium();
+        LOGGER.info("METHOD checkCalculationOfBonus() returns a value: "+bonuses);
+        return bonuses;
 
     }
 
     @Override
     public String toString() {
+        LOGGER.info("METHOD toString() returns:  'The staff role is :' " + getRole());
         return "The staff role is : " + getRole() + "\n";
     }
 }

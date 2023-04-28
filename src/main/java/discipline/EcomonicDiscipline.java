@@ -26,6 +26,14 @@ public class EcomonicDiscipline extends Discipline {
         this.group = group;
     }
 
+    public Semesters getTeachingSemester() {
+        return teachingSemester;
+    }
+
+    public void setTeachingSemester(Semesters teachingSemester) {
+        this.teachingSemester = teachingSemester;
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (obj == this) {

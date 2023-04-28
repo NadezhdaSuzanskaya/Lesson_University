@@ -2,11 +2,12 @@ package person;
 
 import enums.Departments;
 import interfaces.IChangeDepartment;
-import interfaces.ILeaveFeetback;
+import interfaces.Feedback;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
-public class MasterDegreeStudent extends Student implements IChangeDepartment, ILeaveFeetback {
-
-
+public class MasterDegreeStudent extends Student implements IChangeDepartment, Feedback {
+    private static final Logger LOGGER = LogManager.getLogger();
     private String firstDegree;
     private String termOfStudy;
 
@@ -46,16 +47,17 @@ public class MasterDegreeStudent extends Student implements IChangeDepartment, I
     @Override
     public Departments changeDepartment(Departments newDepartment) {
         setDepartment(newDepartment);
+        LOGGER.info("METHOD changeDepartment() updates department to: "+newDepartment);
         return getDepartment();
     }
 
     @Override
-    public void leavePositiveFeetback() {
-        System.out.println("Thanks for the great professorial staff\n");
+    public void leavePositiveFeedback() {
+        LOGGER.info("METHOD leavePositiveFeetback() - Thanks for the great professorial staff");
     }
 
     @Override
     public void leaveComplain() {
-        System.out.println("You should add more practice lessons");
+        LOGGER.info("METHOD leaveComplain() - You should add more practice lessons");
     }
 }

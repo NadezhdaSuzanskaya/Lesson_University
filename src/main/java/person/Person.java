@@ -1,6 +1,10 @@
 package person;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import exceptions.NullValueException;
 
 public abstract class Person {
+    private static final Logger LOGGER = LogManager.getLogger();
     protected String name;
     protected byte age;
     protected String address;
@@ -25,6 +29,7 @@ public abstract class Person {
     }
 
     public String getName() {
+        this.name = name;
         return name;
     }
 
@@ -44,7 +49,10 @@ public abstract class Person {
         this.age = age;
     }
 
-    public void setName(String name) {
+    public void setName(String name) throws NullValueException {
+
+        if (name =="" || name ==" ")
+        {throw new NullValueException();}
         this.name = name;
     }
 

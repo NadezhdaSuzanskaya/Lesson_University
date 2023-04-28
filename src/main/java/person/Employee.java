@@ -2,9 +2,11 @@ package person;
 
 import constants.CalcSalary;
 import constants.PersonConstants;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public abstract class Employee extends Person {
-
+    private static final Logger LOGGER = LogManager.getLogger();
     protected String individualNumber;
     protected String startDate;
     protected int numberOfWorkHours;
@@ -44,7 +46,10 @@ public abstract class Employee extends Person {
     }
 
     public final double checkCalculationOfMinSalary() {
-        return PersonConstants.RATE * getNumberOfWorkHours();
+        double minSalary;
+        minSalary = PersonConstants.RATE * getNumberOfWorkHours();
+        LOGGER.info("METHOD checkCalculationOfMinSalary() returns min salaty" + minSalary);
+        return minSalary;
     }
 
     ;
@@ -52,7 +57,10 @@ public abstract class Employee extends Person {
     public abstract double checkCalculationOfBonus();
 
     public final double checkCalculationOfSalary() {
-        return checkCalculationOfMinSalary() + checkCalculationOfBonus();
+        double salary;
+        salary = checkCalculationOfMinSalary() + checkCalculationOfBonus();
+        LOGGER.info("METHOD checkCalculationOfSalary() returns: " + salary);
+        return salary;
     }
 
     ;

@@ -1,8 +1,12 @@
 package interfaces;
 
-public interface IAskBonus {
-    void askPersonalBonus();
+import exceptions.LongValueException;
+import exceptions.NullValueException;
+import exceptions.SpecificSymbolException;
 
-    String askBonusForCollege();
+public interface IAskBonus {
+    double askPersonalBonus();
+
+    String askBonusForCollege(String name) throws NullValueException, LongValueException, SpecificSymbolException;
 
 }
