@@ -37,4 +37,9 @@ Done for the class 04/28/2023:
 - handled exceptions in 2 ways
 - used try-catch with resources
 - logged messages to the console, file
-
+----------------------------------------------
+Done for the class 05/05/2023:
+- added all class objects to the collection (9 collections) in the University.java
+- build jar file and deploy to the local repository
+- added and used 2 Plugins
+- build shade-jar file
