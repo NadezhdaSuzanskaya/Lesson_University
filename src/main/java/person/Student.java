@@ -2,9 +2,13 @@ package person;
 
 import enums.Departments;
 
+import java.util.ArrayList;
+
 public abstract class Student extends Person {
     protected String numberOfRecordBook;
     protected Departments department;
+
+    ArrayList <Integer> listOfMarks = new ArrayList();
 
     public Student() {
     }
