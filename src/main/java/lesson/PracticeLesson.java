@@ -1,5 +1,7 @@
 package lesson;
 
+import enums.NumberOfClassRoom;
+import enums.TypeOfClassRoom;
 import interfaces.IChangeCountOfLesson;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -15,8 +17,8 @@ public class PracticeLesson extends Lesson implements IChangeCountOfLesson {
     public PracticeLesson() {
     }
 
-    public PracticeLesson(int duration, String classRoom, Assistant assistant, byte countOfPractice) {
-        super(duration, classRoom);
+    public PracticeLesson(int duration, TypeOfClassRoom classRoom, NumberOfClassRoom numberOfClassRoom, Assistant assistant, byte countOfPractice) {
+        super(duration, classRoom, numberOfClassRoom);
         this.assistant = assistant;
         this.countOfPractice = countOfPractice;
     }
@@ -41,7 +43,7 @@ public class PracticeLesson extends Lesson implements IChangeCountOfLesson {
     @Override
     public String toString() {
         return "Info about practice lessons:" + "\n" + " Assistent name is: " + getAssistant() +
-                " Laboratory is: " + getClassRoom() + " Count of lessons is: " + getCountOfPractice();
+                " Laboratory is: " + typeOfClassRoom.getClassRoomTitle() + numberOfClassRoom.getNumberOfClassRoom() + " Count of lessons is: " + getCountOfPractice();
     }
 
     @Override

@@ -8,8 +8,6 @@ public abstract class Student extends Person {
     protected String numberOfRecordBook;
     protected Departments department;
 
-    ArrayList <Integer> listOfMarks = new ArrayList();
-
     public Student() {
     }
 

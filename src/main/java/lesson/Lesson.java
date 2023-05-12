@@ -1,15 +1,20 @@
 package lesson;
 
+import enums.NumberOfClassRoom;
+import enums.TypeOfClassRoom;
+
 public abstract class Lesson {
     protected int duration;
-    protected String classRoom;
-
+    //protected String classRoom;
+    protected TypeOfClassRoom typeOfClassRoom;
+    protected NumberOfClassRoom numberOfClassRoom;
     public Lesson() {
     }
 
-    public Lesson(int duration, String classRoom) {
+    public Lesson(int duration, TypeOfClassRoom classRoom, NumberOfClassRoom numberOfClassRoom) {
         this.duration = duration;
-        this.classRoom = classRoom;
+        this.typeOfClassRoom = classRoom;
+        this.numberOfClassRoom = numberOfClassRoom;
     }
 
     public int getDuration() {
@@ -20,12 +25,20 @@ public abstract class Lesson {
         this.duration = duration;
     }
 
-    public String getClassRoom() {
-        return classRoom;
+
+    public TypeOfClassRoom getTypeOfClassRoom() {
+        return typeOfClassRoom;
     }
 
-    public void setClassRoom(String classRoom) {
-        this.classRoom = classRoom;
+    public void setTypeOfClassRoom(TypeOfClassRoom typeOfClassRoom) {
+        this.typeOfClassRoom = typeOfClassRoom;
     }
 
+    public NumberOfClassRoom getNumberOfClassRoom() {
+        return numberOfClassRoom;
+    }
+
+    public void setNumberOfClassRoom(NumberOfClassRoom numberOfClassRoom) {
+        this.numberOfClassRoom = numberOfClassRoom;
+    }
 }

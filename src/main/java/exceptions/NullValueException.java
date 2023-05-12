@@ -1,6 +1,6 @@
 package exceptions;
 
-public class NullValueException extends Exception{
+public class NullValueException extends NullPointerException{
     public NullValueException(String msg)
     {
         super(msg);

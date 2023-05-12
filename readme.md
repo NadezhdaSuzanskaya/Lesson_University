@@ -43,3 +43,22 @@ Done for the class 05/05/2023:
 - build jar file and deploy to the local repository
 - added and used 2 Plugins
 - build shade-jar file
+----------------------------------------------
+Done for the class 05/12/2023:
+- all blocks try-catch from main class moved to related classes:
+  -- checkNumberOfProfessors() in the Professor,
+  -- checkNumberOfLecture() in the LectureLesson
+- created MyLinkedList with the methods getMyLinkedList, addMyLinkedList, printMyLinkedList
+  and use it in the class BachelorDergeeStudent
+- created 2 more Enums and use them as parameters in the class Lesson:
+  -- NumberOfClassRoom with field and  static block,
+  -- TypeOfClassRoom with field and abstract method getClassRoomTitle()
+- created 1 custom Lambda functions with generics:
+  -- ICalcBonus use it in the class Professor in the method calcProfessorBonus() and in the class Assistant in the method calcAssistantBonus()
+- used  5 lambda functions from the java.util.function package:
+  -- roundToNearestInt in the class Assistant in the method calcAssistantBonus()
+  -- sum class Professor in the method calcProfessorSalary()
+  -- isGreaterThan in the class Professor in the method compareSalaryWithOverage()
+  -- printUpperCase  in the class BachelorDergeeStudent in the method leaveComplain()
+  -- printString in the class University
+-

@@ -1,5 +1,9 @@
 package lesson;
 
+import enums.NumberOfClassRoom;
+import enums.TypeOfClassRoom;
+import exceptions.LargeNumberException;
+import exceptions.NegativeValueException;
 import interfaces.IChangeCountOfLesson;
 import interfaces.IChangeClassRoom;
 import org.apache.logging.log4j.LogManager;
@@ -13,13 +17,15 @@ public class LectureLesson extends Lesson implements IChangeCountOfLesson, IChan
     private Professor professor;
     private byte countOfLecture;
 
+    public static int count = 0;
     public LectureLesson() {
     }
 
-    public LectureLesson(int duration, String classRoom, Professor professor, byte countOfLecture) {
-        super(duration, classRoom);
+    public LectureLesson(int duration, TypeOfClassRoom classRoom, NumberOfClassRoom numberOfClassRoom, Professor professor, byte countOfLecture) {
+        super(duration, classRoom, numberOfClassRoom);
         this.professor = professor;
         this.countOfLecture = countOfLecture;
+        count++;
     }
 
     public Professor getProfessor() {
@@ -41,7 +47,7 @@ public class LectureLesson extends Lesson implements IChangeCountOfLesson, IChan
     @Override
     public String toString() {
         return "Info about lecture lessons: " + "\n" + "  Professor name is: " + getProfessor() + "  Count of lesson is: "
-                + getCountOfLecture() + "  Classroom is: " + getClassRoom() + "\n";
+                + getCountOfLecture() + "  Classroom is: " + typeOfClassRoom.getClassRoomTitle() + numberOfClassRoom.getNumberOfClassRoom()+"\n";
     }
 
     @Override
@@ -66,10 +72,28 @@ public class LectureLesson extends Lesson implements IChangeCountOfLesson, IChan
     }
 
     @Override
-    public String changeClassRoom(String newClassRoom) {
-        setClassRoom(newClassRoom);
-        LOGGER.info("METHOD changeClassRoom() updates value of classroom  to: " + newClassRoom);
-        return getClassRoom();
+    public String changeClassRoom(TypeOfClassRoom newClassRoom, NumberOfClassRoom newNumberOfClassRoom) {
+        setTypeOfClassRoom(newClassRoom);
+        setNumberOfClassRoom(newNumberOfClassRoom);
+        LOGGER.info("METHOD changeClassRoom() updates value of classroom  to: " + newClassRoom + " " +newNumberOfClassRoom);
+        String newValueOfClassRoom =  getTypeOfClassRoom().toString()+" "+ getNumberOfClassRoom().toString();
+        return newValueOfClassRoom;
     }
-
+    //check NegativeValueException and LargeNumberException
+    public void checkNumberOfLecture()
+    {
+        try {
+            if (count > 0 && count < 100) {
+                LOGGER.info("Count of Lecture lesson is "+count);
+            } else if (count <= 0) {
+                throw new NegativeValueException();
+            } else {
+                throw new LargeNumberException();
+            }
+        } catch (NegativeValueException exp) {
+            LOGGER.error(exp.getMessage());
+        } catch (LargeNumberException exp) {
+            LOGGER.error(exp.getMessage());
+        }
+    }
 }

@@ -1,6 +1,6 @@
 package exceptions;
 
-public class SpecificSymbolException extends Exception{
+public class SpecificSymbolException extends IllegalArgumentException{
     public SpecificSymbolException(String msg)
     {
         super(msg);

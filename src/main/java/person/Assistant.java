@@ -1,10 +1,14 @@
 package person;
 
 import java.io.File;
+import java.util.function.DoubleToIntFunction;
+import java.util.function.IntFunction;
+
 import constants.PersonConstants;
 import enums.Departments;
 import exceptions.NullValueException;
 import interfaces.IAskBonus;
+import interfaces.ICalcBonus;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -64,5 +68,13 @@ public class Assistant extends Employee {
 
     }
 
+    public int calcAssistantBonus(int numberOfWorkHours) {
+        ICalcBonus<Integer, Integer> calcAssistantBonus = (x) -> (int) (x *0.33+getOverTimeHours()*0.5); //160*0.33+23*0,5=64.3
+        LOGGER.info("Assistant bonus is: "+  calcAssistantBonus.calcBonus(numberOfWorkHours));
+        // lambda functions from the java.util.function package
+        DoubleToIntFunction roundToNearestInt = d -> (int) Math.round(d);
+        int result = roundToNearestInt.applyAsInt(calcAssistantBonus.calcBonus(numberOfWorkHours));
+        return  result;
+    }
 
 }

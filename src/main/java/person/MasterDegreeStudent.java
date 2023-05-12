@@ -6,11 +6,13 @@ import interfaces.IFeedback;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.util.ArrayList;
+
 public class MasterDegreeStudent extends Student implements IChangeDepartment, IFeedback {
     private static final Logger LOGGER = LogManager.getLogger();
     private String firstDegree;
     private String termOfStudy;
-
+    ArrayList<MasterDegreeStudent> students = new ArrayList();
     public MasterDegreeStudent() {
     }
 
@@ -19,7 +21,9 @@ public class MasterDegreeStudent extends Student implements IChangeDepartment, I
         super(name, age, address, phone, numberOfRecordBook, department);
         this.firstDegree = firstDegree;
         this.termOfStudy = termOfStudy;
+        students.add( new MasterDegreeStudent());
     }
+
 
     public String getFirstDegree() {
         return firstDegree;
@@ -57,7 +61,19 @@ public class MasterDegreeStudent extends Student implements IChangeDepartment, I
     }
 
     @Override
-    public void leaveComplain() {
+    public void  leaveComplain() {
         LOGGER.info("METHOD leaveComplain() - You should add more practice lessons");
+
+    }
+
+    public void addMasterDegreeStudent(MasterDegreeStudent obj) {
+        students.add(obj);
+    }
+
+    public void printMasterDegreeStudents() {
+
+        for (MasterDegreeStudent obj : students) {
+            System.out.println(obj.toString());
+        }
     }
 }

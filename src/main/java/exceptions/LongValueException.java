@@ -1,6 +1,6 @@
 package exceptions;
 
-public class LongValueException extends Exception{
+public class LongValueException extends StringIndexOutOfBoundsException{
 
     public LongValueException(String msg)
         {

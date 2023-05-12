@@ -1,6 +1,6 @@
 package exceptions;
 
-public class LargeNumberException extends Exception {
+public class LargeNumberException extends IllegalArgumentException {
 
     public LargeNumberException(String msg)
     {
