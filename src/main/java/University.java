@@ -1,9 +1,7 @@
-import discipline.EcomonicDiscipline;
-import discipline.InformationSecurityDiscipline;
-import enums.Departments;
-import enums.NumberOfClassRoom;
-import enums.Semesters;
-import enums.TypeOfClassRoom;
+import discipline.EcomonicFaculty;
+import discipline.InformationSecurityFaculty;
+import enums.*;
+import exam.AcademicPerformance;
 import exceptions.LongValueException;
 import exceptions.NullValueException;
 import exceptions.SpecificSymbolException;
@@ -14,6 +12,7 @@ import org.apache.logging.log4j.Logger;
 import person.*;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.function.Consumer;
 
 public class University {
@@ -35,9 +34,31 @@ public class University {
         masterDegreeStudent1.leaveComplain();
         masterDegreeStudent2.leavePositiveFeedback();
 
+        LinkedList<Marks> marks = new LinkedList<>();
+        marks.add(Marks.MARK_3);
+        marks.add(Marks.MARK_5);
+        marks.add(Marks.MARK_6);
+
+        LinkedList<Marks> marks2 = new LinkedList<>();
+        marks2.add(Marks.MARK_2);
+        marks2.add(Marks.MARK_5);
+        marks2.add(Marks.MARK_3);
+
+        LinkedList<Marks> marks3 = new LinkedList<>();
+        marks3.add(Marks.MARK_4);
+        marks3.add(Marks.MARK_4);
+        marks3.add(Marks.MARK_3);
+
+        ArrayList<AcademicPerformance> performances= new ArrayList();
+        AcademicPerformance academicPerformance1 = new AcademicPerformance(Disciplines.PHILOSOPHY, marks);
+        AcademicPerformance academicPerformance2 = new AcademicPerformance(Disciplines.PYTHON_BASIC, marks2);
+        AcademicPerformance academicPerformance3 = new AcademicPerformance(Disciplines.ENGLISH, marks3);
+        performances.add(academicPerformance1);
+        performances.add(academicPerformance2);
+        performances.add(academicPerformance3);
         //add Collection of BachelorDergee Students,   change for all of them Department value and call methods leaveComplain(), leavePositiveFeedback()
         BachelorDergeeStudent bachelorDergeeStudents = new BachelorDergeeStudent();
-        BachelorDergeeStudent firstDegreeStudent1 = new BachelorDergeeStudent("Monika", (byte) 23, "Warsaw", "+48-30-23-987", "01-032", Departments.INFORMATION_TECHNOLOGIES, true, "2020-2024");
+        BachelorDergeeStudent firstDegreeStudent1 = new BachelorDergeeStudent("Monika", (byte) 23, "Warsaw", "+48-30-23-987", "01-032", Departments.INFORMATION_TECHNOLOGIES, true, "2020-2024",performances);
         BachelorDergeeStudent firstDegreeStudent2 = new BachelorDergeeStudent("Beata", (byte) 25, "Warsaw", "+48-44-00-111", "01-132", Departments.ECONOMIC, false, "2023-2027");
         BachelorDergeeStudent firstDegreeStudent3 = new BachelorDergeeStudent("Anna", (byte) 26, "Warsaw", "+48-45-56-456", "01-321", Departments.MARKETING, true, "2022-2026");
         bachelorDergeeStudents.addBachelorDegreeStudent(firstDegreeStudent1);
@@ -49,6 +70,13 @@ public class University {
 
         firstDegreeStudent1.leaveComplain();
         firstDegreeStudent2.leavePositiveFeedback();
+
+        firstDegreeStudent1.calcAverageMark(marks);
+        firstDegreeStudent1.calcAverageMarkForAllDisciplines(performances);
+        bachelorDergeeStudents.calcGeneralAverage(performances);
+        bachelorDergeeStudents.filterDisciplineByName(performances);
+        bachelorDergeeStudents.getListOfGoodMarks(performances);
+        bachelorDergeeStudents.getHighestMarkForEachDiscipline(performances);
 
         //add Collection of Professors
         ArrayList<Professor> professors = new ArrayList();
@@ -131,10 +159,10 @@ public class University {
 
 
         //add Collection of EcomonicDiscipline
-        ArrayList<EcomonicDiscipline> ecomonicDisciplines = new ArrayList<>();
-        EcomonicDiscipline ecomonicDiscipline1 = new EcomonicDiscipline("Ecomonic",
+        ArrayList<EcomonicFaculty> ecomonicDisciplines = new ArrayList<>();
+        EcomonicFaculty ecomonicDiscipline1 = new EcomonicFaculty("Ecomonic",
                 Semesters.FIFTH_SEMESTER, lectureLesson, practiceLesson, 303);
-        EcomonicDiscipline ecomonicDiscipline2 = new EcomonicDiscipline("Ecomonic",
+        EcomonicFaculty ecomonicDiscipline2 = new EcomonicFaculty("Ecomonic",
                 Semesters.FIFTH_SEMESTER, lectureLesson, practiceLesson, 303);
 
         ecomonicDisciplines.add(ecomonicDiscipline1);
@@ -146,10 +174,10 @@ public class University {
         }
 
         //add Collection of InformationSecurityDiscipline
-        ArrayList<InformationSecurityDiscipline> informationSecurityDisciplines = new ArrayList<>();
-        InformationSecurityDiscipline informationSecurity1 = new InformationSecurityDiscipline(
+        ArrayList<InformationSecurityFaculty> informationSecurityDisciplines = new ArrayList<>();
+        InformationSecurityFaculty informationSecurity1 = new InformationSecurityFaculty(
                 "Information security online", Semesters.FIRST_SEMESTER, lectureLesson, practiceLesson, 101);
-        InformationSecurityDiscipline informationSecurity2 = new InformationSecurityDiscipline(
+        InformationSecurityFaculty informationSecurity2 = new InformationSecurityFaculty(
                 "Information security online", Semesters.SECOND_SEMESTER, lectureLesson, practiceLesson, 101);
         informationSecurityDisciplines.add(informationSecurity1);
         informationSecurityDisciplines.add(informationSecurity2);

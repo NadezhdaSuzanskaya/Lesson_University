@@ -1,19 +1,18 @@
 package discipline;
 
-import enums.Departments;
 import enums.Semesters;
 import lesson.LectureLesson;
 import lesson.PracticeLesson;
 
-public class InformationSecurityDiscipline extends Discipline {
+public class InformationSecurityFaculty extends Faculty {
 
     private int group;
     private Semesters teachingSemester;
 
-    public InformationSecurityDiscipline() {
+    public InformationSecurityFaculty() {
     }
 
-    public InformationSecurityDiscipline(String disciplineName, Semesters semesters, LectureLesson lectureLesson, PracticeLesson practiceLesson, int group) {
+    public InformationSecurityFaculty(String disciplineName, Semesters semesters, LectureLesson lectureLesson, PracticeLesson practiceLesson, int group) {
         super(disciplineName, lectureLesson, practiceLesson);
         this.group = group;
         this.teachingSemester = semesters;
@@ -44,7 +43,7 @@ public class InformationSecurityDiscipline extends Discipline {
             return false;
         }
 
-        InformationSecurityDiscipline informationSecurity = (InformationSecurityDiscipline) obj;
+        InformationSecurityFaculty informationSecurity = (InformationSecurityFaculty) obj;
         return group == informationSecurity.group
                 //          && (department == informationSecurity.department  || (department != null && department.equals(department.getDepartment())))
                 && (teachingSemester == informationSecurity.teachingSemester || (teachingSemester != null && teachingSemester.equals(teachingSemester.getSemester())))

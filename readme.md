@@ -61,4 +61,14 @@ Done for the class 05/12/2023:
   -- isGreaterThan in the class Professor in the method compareSalaryWithOverage()
   -- printUpperCase  in the class BachelorDergeeStudent in the method leaveComplain()
   -- printString in the class University
--
+-----------------------------------------------
+ Done for the class 05/16/2023:
+ - created 6 methods in the class BachelorDergeeStudent with 7 collection streaming
+   -- in method 'calcAverageMark()'
+   -- in method 'calcAverageMarksForAllDisciplines()'
+   -- in method 'calcGeneralAverage()'
+   -- in method 'filterDisciplineByName()'
+   -- in method 'getListOfGoodMarks()'
+   -- in method 'getHighestMarkForEachDiscipline()'
+ - created 2 more enums "Marks" and "Disciplines"
+ - created one more class "AcademicPerformance"

@@ -1,18 +1,17 @@
 package discipline;
 
-import enums.Departments;
 import enums.Semesters;
 import lesson.LectureLesson;
 import lesson.PracticeLesson;
 
-public class EcomonicDiscipline extends Discipline {
+public class EcomonicFaculty extends Faculty {
     private int group;
     private Semesters teachingSemester;
 
-    public EcomonicDiscipline() {
+    public EcomonicFaculty() {
     }
 
-    public EcomonicDiscipline(String disciplineName, Semesters semesters, LectureLesson lectureLesson, PracticeLesson practiceLesson, int group) {
+    public EcomonicFaculty(String disciplineName, Semesters semesters, LectureLesson lectureLesson, PracticeLesson practiceLesson, int group) {
         super(disciplineName, lectureLesson, practiceLesson);
         this.group = group;
         this.teachingSemester = semesters;
@@ -43,7 +42,7 @@ public class EcomonicDiscipline extends Discipline {
             return false;
         }
 
-        EcomonicDiscipline ecomonicDiscipline = (EcomonicDiscipline) obj;
+        EcomonicFaculty ecomonicDiscipline = (EcomonicFaculty) obj;
         return group == ecomonicDiscipline.group
                 // && (department == ecomonicDiscipline.department  || (department != null && department.equals(department.getDepartment())))
                 && (teachingSemester == ecomonicDiscipline.teachingSemester || (teachingSemester != null && teachingSemester.equals(teachingSemester.getSemester())))

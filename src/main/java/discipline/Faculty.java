@@ -4,17 +4,17 @@ import enums.Departments;
 import lesson.LectureLesson;
 import lesson.PracticeLesson;
 
-public abstract class Discipline {
+public abstract class Faculty {
 
     protected String disciplineName;
     protected LectureLesson lectureLesson;
     protected PracticeLesson practiceLesson;
 
 
-    public Discipline() {
+    public Faculty() {
     }
 
-    public Discipline(String disciplineName, LectureLesson lectureLesson, PracticeLesson practiceLesson) {
+    public Faculty(String disciplineName, LectureLesson lectureLesson, PracticeLesson practiceLesson) {
         this.disciplineName = disciplineName;
         this.lectureLesson = lectureLesson;
         this.practiceLesson = practiceLesson;
