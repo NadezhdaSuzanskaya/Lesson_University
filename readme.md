@@ -63,6 +63,8 @@ Done for the class 05/12/2023:
   -- printString in the class University
 -----------------------------------------------
  Done for the class 05/16/2023:
+ - created 2 more enums "Marks" and "Disciplines"
+ - created one more class "AcademicPerformance"
  - created 6 methods in the class BachelorDergeeStudent with 7 collection streaming
    -- in method 'calcAverageMark()'
    -- in method 'calcAverageMarksForAllDisciplines()'
@@ -70,5 +72,4 @@ Done for the class 05/12/2023:
    -- in method 'filterDisciplineByName()'
    -- in method 'getListOfGoodMarks()'
    -- in method 'getHighestMarkForEachDiscipline()'
- - created 2 more enums "Marks" and "Disciplines"
- - created one more class "AcademicPerformance"
+

@@ -91,24 +91,21 @@ public class BachelorDergeeStudent extends Student implements IChangeDepartment,
     @Override
     public void leaveComplain() {
         String text_message = "This lesson was awful!";
-        LOGGER.info("METHOD leaveComplain() - This lesson was awful!");
-        Consumer<String> printUpperCase = s -> System.out.println(s.toUpperCase());
+
+        Consumer<String> printUpperCase = s -> LOGGER.info("METHOD leaveComplain() - This lesson was awful!"+s.toUpperCase());
         printUpperCase.accept(text_message);
     }
 
     public void addBachelorDegreeStudent(BachelorDergeeStudent obj) {
         bechelorStudents.addMyLinkedList(obj);
-
     }
 
     public BachelorDergeeStudent getBachelorDegreeStudent(int i) {
         return bechelorStudents.getMyLinkedList(i);
-
     }
 
     public void printBachelorDegreeStudents() {
         bechelorStudents.printMyLinkedList();
-
     }
 
     public void calcAverageMark(LinkedList<Marks> marks) {
@@ -129,7 +126,6 @@ public class BachelorDergeeStudent extends Student implements IChangeDepartment,
                         .average()
                         .orElse(0.0));
 
-
         LOGGER.info("List of average marks for all disciplines for the student is " + average.collect(Collectors.toList()));
     }
 
@@ -145,7 +141,6 @@ public class BachelorDergeeStudent extends Student implements IChangeDepartment,
                 .count();
 
         double generalAverage = Math.round(summaryOfMarks / countOfMarks * 100.0) / 100.0;
-        ;
         LOGGER.info("GENERAL Average mark for the student is " + generalAverage);
     }
 

@@ -73,8 +73,7 @@ public class Assistant extends Employee {
         LOGGER.info("Assistant bonus is: "+  calcAssistantBonus.calcBonus(numberOfWorkHours));
         // lambda functions from the java.util.function package
         DoubleToIntFunction roundToNearestInt = d -> (int) Math.round(d);
-        int result = roundToNearestInt.applyAsInt(calcAssistantBonus.calcBonus(numberOfWorkHours));
-        return  result;
+        return  roundToNearestInt.applyAsInt(calcAssistantBonus.calcBonus(numberOfWorkHours));
     }
 
 }

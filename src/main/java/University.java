@@ -10,12 +10,20 @@ import lesson.PracticeLesson;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import person.*;
+import threads.Connection;
+import threads.MyConnectionPool;
+import threads.MyFutureConnectionPool;
+import threads.NewRunnableClass;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Consumer;
 
 public class University {
+    private static final int MAX_CONCURRENT_TASKS = 5;
+    private static final int THREAD_POOL_SIZE = 7;
+
     public static void main(String[] args) throws NullValueException, LongValueException, SpecificSymbolException {
         Logger LOGGER = LogManager.getLogger();
         byte countOfLecture1 = 0;
@@ -186,6 +194,77 @@ public class University {
         } else {
             LOGGER.info("The group " + informationSecurity1.getGroup() + " hasn't  " + informationSecurity2.getDisciplineName() + " in the schedule");
         }
+//-----------------------------------------------------------------------------------
+        NewRunnableClass newRunnable1 = new NewRunnableClass();
+        Thread thread1 = new Thread(newRunnable1);
 
+        NewRunnableClass newRunnable2 = new NewRunnableClass();
+        Thread thread2 = new Thread(newRunnable2);
+
+        thread1.start();
+        thread2.start();
+/*
+        MyConnectionPool connectionPool = MyConnectionPool.getInstance();
+        ExecutorService executorService = Executors.newFixedThreadPool(THREAD_POOL_SIZE);
+
+        for (int i = 0; i < THREAD_POOL_SIZE; i++) {
+            executorService.execute(() -> {
+                try {
+                    Connection connection = connectionPool.getConnection();
+                    LOGGER.info("Thread " + Thread.currentThread().getId() + " got a connection.");
+                    // Use the connection
+                    Thread.sleep(2000); // Simulate connection usage
+                    connectionPool.releaseConnection(connection);
+                    LOGGER.info("Thread " + Thread.currentThread().getId() + " released the connection.");
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            });
+        }
+
+        // Wait for the threads to finish
+        executorService.shutdown();
+*/
+///////////////////////////////////////////////////////////////////////////////////////////////////
+        MyFutureConnectionPool futureConnectionPool = MyFutureConnectionPool.getInstance();
+        ExecutorService executorService = Executors.newFixedThreadPool(THREAD_POOL_SIZE);
+
+        Semaphore semaphore = new Semaphore(MAX_CONCURRENT_TASKS);
+        AtomicInteger tasksInProgress = new AtomicInteger(THREAD_POOL_SIZE);
+
+        List<CompletableFuture<Object>> tasks = new ArrayList<>();
+
+        for (int i = 0; i < THREAD_POOL_SIZE; i++) {
+            int finalI = i;
+            CompletableFuture<Object> task = futureConnectionPool.getConnection()
+                    .thenApplyAsync(connection -> {
+                        try {
+                            semaphore.acquire(); // get permission
+                            LOGGER.info("Thread " + finalI + " got a connection.");
+                            Thread.sleep(2000); // Simulate connection usage
+                            return connection;
+                        } catch (InterruptedException e) {
+                            throw new RuntimeException(e);
+                        }
+                    }, executorService)
+                    .thenComposeAsync(connection -> futureConnectionPool.releaseConnection(connection)
+                            .thenApplyAsync(v -> {
+                                semaphore.release(); // Release the permit
+                                LOGGER.info("Thread " + finalI + " released the connection.");
+                                return null;
+                            }), executorService)
+                    .whenComplete((result, throwable) -> {
+                        tasksInProgress.decrementAndGet(); // Decrement the tasks in progress counter
+                    });
+
+            tasks.add(task);
+        }
+
+        CompletableFuture<Void> allTasks = CompletableFuture.allOf(tasks.toArray(new CompletableFuture[0]));
+        allTasks.join();
+
+        executorService.shutdown();
+
+        }
     }
-}
+
